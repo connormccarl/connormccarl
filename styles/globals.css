@@ -124,8 +124,14 @@ a {
   font-size: 2.5rem;
 }
 .blog-post-meta {
-  margin-bottom: 1.25rem;
+  margin-bottom: .25rem;
   color: #999;
+}
+
+.blog-tags p {
+  background-color: #999;
+  border-radius: 2px;
+  color: #fff;
 }
 
 /*
