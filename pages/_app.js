@@ -4,6 +4,9 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import '@/styles/globals.css'
 
 import Nav from '@/components/Nav'
+import Header from '@/components/Header'
+import Footer from '@/components/Footer'
+
 import { useEffect } from 'react'
 
 export default function App({ Component, pageProps }) {
@@ -13,8 +16,9 @@ export default function App({ Component, pageProps }) {
   
   return (
     <>
-      <Nav />
+      <Header />
       <Component {...pageProps} />    
+      <Footer />
     </>
   )
 }
