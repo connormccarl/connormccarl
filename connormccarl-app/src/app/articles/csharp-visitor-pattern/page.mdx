@@ -1,0 +1,115 @@
+import { ArticleLayout } from '@/components/ArticleLayout'
+
+export const article = {
+  author: 'Connor McCarl',
+  date: '2024-03-02',
+  title: 'Advanced Design Patterns in C# - The Visitor Pattern',
+  description:
+    'Design patterns are essential tools for software developers. The Visitor Pattern is a powerful way to separate algorithms from the objects on which they operate.',
+}
+
+export const metadata = {
+  title: article.title,
+  description: article.description,
+}
+
+export default (props) => <ArticleLayout article={article} {...props} />
+
+# Advanced Design Patterns in C# - The Visitor Pattern
+
+Design patterns are essential tools for software developers. The Visitor Pattern is a powerful way to separate algorithms from the objects on which they operate.
+
+## What is the Visitor Pattern?
+
+The Visitor Pattern is a behavioral design pattern that allows you to add further operations to objects without having to modify them. This is achieved by creating a visitor class that implements the operations.
+
+## When to Use the Visitor Pattern?
+
+- When you need to perform many unrelated operations on objects in a structure.
+- When the structure is stable and unlikely to change.
+- When adding new operations is more common than adding new classes.
+
+## Implementing the Visitor Pattern in C#
+
+### Step 1: Define the Visitor Interface
+
+```csharp
+public interface IVisitor
+{
+    void Visit(ElementA element);
+    void Visit(ElementB element);
+}
+```
+
+### Step 2: Create Concrete Visitors
+
+```csharp
+public class ConcreteVisitor : IVisitor
+{
+    public void Visit(ElementA element)
+    {
+        // Implementation
+    }
+
+    public void Visit(ElementB element)
+    {
+        // Implementation
+    }
+}
+```
+
+### Step 3: Define Elements
+
+```csharp
+public abstract class Element
+{
+    public abstract void Accept(IVisitor visitor);
+}
+
+public class ElementA : Element
+{
+    public override void Accept(IVisitor visitor)
+    {
+        visitor.Visit(this);
+    }
+}
+
+public class ElementB : Element
+{
+    public override void Accept(IVisitor visitor)
+    {
+        visitor.Visit(this);
+    }
+}
+```
+
+### Step 4: Use the Visitor
+
+```csharp
+class Program
+{
+    static void Main(string[] args)
+    {
+        var elements = new List<Element> { new ElementA(), new ElementB() };
+        var visitor = new ConcreteVisitor();
+
+        foreach (var element in elements)
+        {
+            element.Accept(visitor);
+        }
+    }
+}
+```
+
+## Benefits of the Visitor Pattern
+
+- **Flexibility:** New operations can be added without modifying the elements.
+- **Single Responsibility:** Operations are separated from the object structure.
+
+## Conclusion
+
+The Visitor Pattern is a powerful tool for complex operations on object structures, enhancing flexibility and maintainability.
+
+---
+
+I hope this article helps you understand and implement the Visitor Pattern in your C# projects. Happy coding!

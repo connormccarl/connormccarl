@@ -1,0 +1,105 @@
+import { ArticleLayout } from '@/components/ArticleLayout'
+
+export const article = {
+  author: 'Connor McCarl',
+  date: '2024-06-01',
+  title: 'New Cloud Technologies - Kubernetes Basics',
+  description:
+    'Kubernetes is an open-source container orchestration platform designed to automate the deployment, scaling, and management of containerized applications.',
+}
+
+export const metadata = {
+  title: article.title,
+  description: article.description,
+}
+
+export default (props) => <ArticleLayout article={article} {...props} />
+
+# New Cloud Technologies - Kubernetes Basics
+
+Kubernetes is an open-source container orchestration platform designed to automate the deployment, scaling, and management of containerized applications.
+
+## What is Kubernetes?
+
+Kubernetes, also known as K8s, is a powerful system for managing containerized applications in a clustered environment. It provides mechanisms for deployment, maintenance, and scaling of applications.
+
+## Key Components of Kubernetes
+
+- **Nodes:** The worker machines that run containerized applications.
+- **Pods:** The smallest deployable units, consisting of one or more containers.
+- **Services:** Abstracts a set of pods and provides a stable endpoint.
+- **Deployments:** Manages the deployment and scaling of pod replicas.
+
+## Why Use Kubernetes?
+
+- **Scalability:** Automatically scale applications based on demand.
+- **Resilience:** Self-healing capabilities to restart failed containers.
+- **Portability:** Works across different environments, from local to cloud.
+
+## Setting Up a Kubernetes Cluster
+
+### Step 1: Install Minikube
+
+Minikube is a tool that sets up a local Kubernetes cluster on your machine.
+
+```bash
+# Install Minikube
+curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+chmod +x minikube
+sudo mv minikube /usr/local/bin/
+```
+
+### Step 2: Start Minikube
+
+```bash
+# Start Minikube
+minikube start
+```
+
+### Step 3: Deploy an Application
+
+Create a deployment YAML file.
+
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:1.14.2
+        ports:
+        - containerPort: 80
+```
+
+Apply the deployment.
+
+```bash
+kubectl apply -f deployment.yaml
+```
+
+### Step 4: Expose the Deployment
+
+Expose the deployment as a service.
+
+```bash
+kubectl expose deployment nginx-deployment --type=NodePort --port=80
+```
+
+## Conclusion
+
+Kubernetes is a powerful tool for managing containerized applications at scale. Its features enable efficient deployment, scaling, and maintenance, making it an essential technology for modern cloud-native applications.
+
+---
+
+I hope this article gives you a good introduction to Kubernetes. Happy orchestrating!

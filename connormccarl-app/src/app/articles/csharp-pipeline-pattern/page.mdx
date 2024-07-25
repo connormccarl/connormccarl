@@ -1,0 +1,132 @@
+import { ArticleLayout } from '@/components/ArticleLayout'
+
+export const article = {
+  author: 'Connor McCarl',
+  date: '2024-02-03',
+  title: 'Introducing the Pipeline Pattern in C#',
+  description:
+    'Design patterns are the backbone of effective software development, providing reusable solutions to common problems. Today, we introduce a new design pattern for C# developers: the Pipeline Pattern. This pattern simplifies the creation of complex workflows by allowing individual processing steps to be composed into a pipeline, where each step processes the output of the previous step.',
+}
+
+export const metadata = {
+  title: article.title,
+  description: article.description,
+}
+
+export default (props) => <ArticleLayout article={article} {...props} />
+
+# Introducing the Pipeline Pattern in C#
+
+Design patterns are the backbone of effective software development, providing reusable solutions to common problems. Today, we introduce a new design pattern for C# developers: the **Pipeline Pattern**. This pattern simplifies the creation of complex workflows by allowing individual processing steps to be composed into a pipeline, where each step processes the output of the previous step.
+
+## What is the Pipeline Pattern?
+
+The Pipeline Pattern is a behavioral design pattern that allows you to construct a sequence of processing steps, or "stages", through which data passes. Each stage is responsible for a specific operation, and the output of one stage becomes the input for the next. This design encourages separation of concerns, making the code more modular, readable, and maintainable.
+
+## When to Use the Pipeline Pattern?
+
+Use the Pipeline Pattern when you have:
+- A sequence of operations to be performed on data.
+- A need for flexible and reusable processing steps.
+- A desire to improve code readability and maintainability.
+- An intention to easily add, remove, or reorder processing steps.
+
+## Implementing the Pipeline Pattern in C#
+
+Here's a step-by-step guide to implementing the Pipeline Pattern in C#.
+
+### Step 1: Define the Pipeline Interface
+
+First, define an interface that represents a pipeline step. This interface should include a method that takes an input and produces an output.
+
+```csharp
+public interface IPipelineStep<TInput, TOutput>
+{
+    TOutput Process(TInput input);
+}
+```
+
+### Step 2: Create Concrete Pipeline Steps
+
+Next, implement concrete pipeline steps that conform to the IPipelineStep interface. Each step performs a specific operation.
+
+```csharp
+public class Step1 : IPipelineStep<string, string>
+{
+    public string Process(string input)
+    {
+        return input.ToUpper();
+    }
+}
+
+public class Step2 : IPipelineStep<string, string>
+{
+    public string Process(string input)
+    {
+        return $"{input} - processed by Step2";
+    }
+}
+```
+
+### Step 3: Implement the Pipeline
+
+Now, create a `Pipeline` class that holds a sequence of steps. This class should implement a method to add steps and another to execute the pipeline.
+
+```csharp
+public class Pipeline<T>
+{
+    private readonly List<IPipelineStep<T, T>> _steps = new();
+
+    public Pipeline<T> AddStep(IPipelineStep<T, T> step)
+    {
+        _steps.Add(step);
+        return this;
+    }
+
+    public T Execute(T input)
+    {
+        T result = input;
+        foreach (var step in _steps)
+        {
+            result = step.Process(result);
+        }
+        return result;
+    }
+}
+```
+
+### Step 4: Use the Pipeline
+
+Finally, use the pipeline in your application by creating an instance of the `Pipeline` class and adding the desired steps.
+
+```csharp
+class Program
+{
+    static void Main(string[] args)
+    {
+        var pipeline = new Pipeline<string>()
+            .AddStep(new Step1())
+            .AddStep(new Step2());
+
+        string input = "hello world";
+        string result = pipeline.Execute(input);
+
+        Console.WriteLine(result); // Output: "HELLO WORLD - processed by Step2"
+    }
+}
+```
+
+## Benefits of the Pipeline Pattern
+
+- **Modularity:** Each step in the pipeline is a separate component, making the codebase easier to manage.
+- **Reusability:** Steps can be reused in different pipelines or contexts.
+- **Flexibility:** Steps can be easily added, removed, or reordered without affecting other parts of the code.
+- **Readability:** The linear flow of the pipeline makes the processing logic clear and easy to understand.
+
+## Conclusion
+
+The Pipeline Pattern is a powerful addition to any C# developer's toolkit, providing a structured approach to building complex workflows. By breaking down processing into discrete steps, this pattern promotes cleaner, more maintainable, and more flexible code.
+
+---
+
+I hope this article helps you understand and implement the Pipeline Pattern in your C# projects. Happy coding!
