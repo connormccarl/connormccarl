@@ -18,6 +18,9 @@ export const metadata: Metadata = {
       'application/rss+xml': `${process.env.NEXT_PUBLIC_SITE_URL}/feed.xml`,
     },
   },
+  icons: {
+    icon: '/favicon.ico',
+  }
 }
 
 export default function RootLayout({
