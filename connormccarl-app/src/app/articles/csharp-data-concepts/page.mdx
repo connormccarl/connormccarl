@@ -1,0 +1,204 @@
+import { ArticleLayout } from '@/components/ArticleLayout'
+
+export const article = {
+  author: 'Connor McCarl',
+  date: '2024-09-07',
+  title: 'C# Data Concepts',
+  description:
+    'Data concepts in C# form the backbone of programming in this language. From primitive data types to more complex structures like classes and generics, understanding how data is handled is crucial for writing efficient and readable C# programs.',
+}
+
+export const metadata = {
+  title: article.title,
+  description: article.description,
+}
+
+export default (props) => <ArticleLayout article={article} {...props} />
+
+# C# Data Concepts
+
+Data concepts in C# form the backbone of programming in this language. From primitive data types to more complex structures like classes and generics, understanding how data is handled is crucial for writing efficient and readable C# programs. In this article, we will explore key data concepts in C#, including:
+
+- Primitive Data Types
+- Complex Types (Classes and Structs)
+- Collections
+- Generics
+- Nullable Types
+- Data Handling in C# (LINQ, async/await)
+
+## 1. Primitive Data Types
+
+In C#, primitive data types are the most basic forms of data used for variables and constants. These types are directly supported by the language and have fixed sizes. Some common primitive types include:
+
+```csharp
+int number = 10;
+char letter = 'A';
+bool isTrue = true;
+float pi = 3.14f;
+double bigPi = 3.14159;
+```
+
+The **primitive data types** include:
+- `int`: Represents a 32-bit integer.
+- `char`: A Unicode character.
+- `bool`: A Boolean value (`true` or `false`).
+- `float`: A single-precision floating-point number.
+- `double`: A double-precision floating-point number.
+
+### Default Values
+
+Each of these types has a **default value** if left uninitialized. For example, `int` defaults to `0`, `bool` defaults to `false`, and `char` defaults to `\0` (null character).
+
+## 2. Complex Types: Classes and Structs
+
+C# also allows defining more **complex data types** like **classes** and **structs**. These types represent objects that can contain multiple members (fields, methods, etc.).
+
+### Classes
+A class is a reference type that is used to define objects with specific properties and behaviors.
+
+```csharp
+public class Car
+{
+    public string Model { get; set; }
+    public int Year { get; set; }
+
+    public void Drive()
+    {
+        Console.WriteLine("The car is driving.");
+    }
+}
+```
+### Structs
+
+Structs are similar to classes but are **value types**. This means that they are stored on the stack rather than the heap, making them more efficient in certain cases, especially for small, immutable data structures.
+
+```csharp
+public struct Point
+{
+    public int X { get; set; }
+    public int Y { get; set; }
+}
+```
+
+### Differences Between Classes and Structs
+- **Classes** are reference types, while **structs** are value types.
+- Structs are generally used for lightweight objects, whereas classes are used for complex entities.
+
+## 3. Collections
+
+C# provides several collection types to store groups of objects. The most common are arrays, lists, and dictionaries.
+
+### Arrays
+
+Arrays store a fixed-size sequential collection of elements of the same type.
+
+```csharp
+int[] numbers = new int[5] {1, 2, 3, 4, 5};
+```
+
+### Lists
+
+`List<T>` is a resizable collection that can grow dynamically.
+
+```csharp
+List<string> names = new List<string>();
+names.Add("John");
+names.Add("Jane");
+```
+
+
+### Dictionaries
+
+A `Dictionary<TKey, TValue>` stores key-value pairs.
+
+```csharp
+Dictionary<string, int> ages = new Dictionary<string, int>();
+ages["John"] = 30;
+ages["Jane"] = 25;
+```
+
+## 4. Generics
+
+Generics allow you to define classes, interfaces, and methods with a placeholder for the type, enabling reusability and type safety.
+
+```csharp
+public class GenericClass<T>
+{
+    public T Value { get; set; }
+}
+```
+
+With generics, you can work with any data type while maintaining the type safety of C#.
+
+```csharp
+GenericClass<int> intInstance = new GenericClass<int>();
+intInstance.Value = 10;
+
+GenericClass<string> stringInstance = new GenericClass<string>();
+stringInstance.Value = "Hello";
+```
+
+### Generic Collections
+
+Generics are also used in collections like `List<T>`, `Dictionary<TKey, TValue>`, and `Queue<T>`. These collections provide strong type checking and performance benefits over non-generic collections.
+
+## 5. Nullable Types
+
+In C#, value types (like `int` and `bool`) cannot be null by default. To allow null values for value types, C# provides **nullable types**.
+
+```csharp
+int? nullableInt = null;
+bool? nullableBool = null;
+```
+
+Nullable types are especially useful when working with databases or external data sources where a value might be missing.
+
+You can check if a nullable type has a value using `.HasValue` or by comparing it to `null`.
+
+```csharp
+if (nullableInt.HasValue)
+{
+    Console.WriteLine(nullableInt.Value);
+}
+else
+{
+    Console.WriteLine("No value assigned.");
+}
+```
+
+## 6. Data Handling in C#
+
+C# offers powerful features for handling and querying data. Two major tools are **LINQ (Language Integrated Query)** and **async/await** for asynchronous programming.
+
+### LINQ (Language Integrated Query)
+
+LINQ allows querying data from different data sources in a more readable and consistent manner.
+
+```csharp
+int[] numbers = { 1, 2, 3, 4, 5 };
+var evenNumbers = from number in numbers
+                  where number % 2 == 0
+                  select number;
+```
+
+### Async/Await for Asynchronous Data Handling
+
+For I/O-bound tasks such as database calls or file operations, C# provides the `async` and `await` keywords to write asynchronous code.
+
+```csharp
+public async Task<string> FetchDataAsync()
+{
+    using (HttpClient client = new HttpClient())
+    {
+        return await client.GetStringAsync("http://example.com/data");
+    }
+}
+```
+
+Asynchronous programming ensures that your application remains responsive while performing time-consuming operations.
+
+---
+
+By mastering these C# data concepts, you can write more efficient and maintainable code, leveraging the full potential of the language for handling simple and complex data structures.
+
+Happy coding!
