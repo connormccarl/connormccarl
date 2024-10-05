@@ -14,6 +14,7 @@ import {
 import logoCreativ from '@/images/logos/creativcodes.jpeg'
 import logoSCC from '@/images/logos/scc.png'
 import logoChapman from '@/images/logos/chapman.svg'
+import logoFinaeon from '@/images/logos/finaeon.gif'
 import image1 from '@/images/photos/image-1.jpg'
 import image2 from '@/images/photos/image-2.jpg'
 import image3 from '@/images/photos/image-3.jpg'
@@ -186,12 +187,22 @@ function Role({ role }: { role: Role }) {
 function Resume() {
   let resume: Array<Role> = [
     {
+      company: 'Finaeon',
+      title: 'Lead Software Developer',
+      logo: logoFinaeon,
+      start: '2024',
+      end: {
+        label: 'Present',
+        dateTime: new Date().getFullYear().toString(),
+      },
+    },
+    {
       company: 'CreativCodes',
-      title: 'Senior Software Engineer',
+      title: 'Senior Software Developer',
       logo: logoCreativ,
       start: '2017',
       end: {
-        label: 'Present',
+        label: '2024',
         dateTime: new Date().getFullYear().toString(),
       },
     },
@@ -204,7 +215,7 @@ function Resume() {
     },
     {
       company: 'Chapman University',
-      title: 'Software Engineering Intern',
+      title: 'Software Developer Intern',
       logo: logoChapman,
       start: '2013',
       end: '2016',

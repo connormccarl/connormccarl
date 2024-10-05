@@ -6,8 +6,16 @@ import { SimpleLayout } from '@/components/SimpleLayout'
 import logoFun from '@/images/logos/funfrenzy.png'
 import logoGregor from '@/images/logos/gregor.png'
 import logo3dif from '@/images/logos/3dif.jpg'
+import logoFinaeon from '@/images/logos/finaeon.gif'
 
 const projects = [
+  {
+    name: 'Finaeon',
+    description:
+      '150+ years of historical stock and economic data for Top Universities, Hedge Funds and Traders.',
+    link: { href: 'https://gfdfinaeon.com', label: 'Finaeon' },
+    logo: logoFinaeon,
+  },
   {
     name: 'Gregor Private Golf Club',
     description:
