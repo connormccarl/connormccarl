@@ -20,7 +20,7 @@ const projects = [
     name: 'Gregor Private Golf Club',
     description:
       'Golf simulator bay scheduling and billing platform for customers.',
-    link: { href: 'https://app.gpcgolf.com/', label: 'The Gregor Club' },
+    link: { href: 'https://gpcgolf.com/', label: 'The Gregor Club' },
     logo: logoGregor,
   },
   {
