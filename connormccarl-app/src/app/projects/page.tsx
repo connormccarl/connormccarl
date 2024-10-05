@@ -13,28 +13,28 @@ const projects = [
     name: 'Finaeon',
     description:
       '150+ years of historical stock and economic data for Top Universities, Hedge Funds and Traders.',
-    link: { href: 'https://gfdfinaeon.com', label: 'Finaeon' },
+    link: { href: 'https://gfdfinaeon.com/', label: 'Finaeon' },
     logo: logoFinaeon,
   },
   {
     name: 'Gregor Private Golf Club',
     description:
       'Golf simulator bay scheduling and billing platform for customers.',
-    link: { href: 'https://github.com/connormccarl/client-GregorGolf/tree/main/gregorgolf-app', label: 'github.com' },
+    link: { href: 'https://app.gpcgolf.com/', label: 'The Gregor Club' },
     logo: logoGregor,
   },
   {
     name: 'Orange County Fun Frenzy',
     description:
       'A site curated by a local OC resident of all the fun things to do around OC.',
-    link: { href: 'https://www.ocfunfrenzy.com/', label: 'ocfunfrenzy.com' },
+    link: { href: 'https://www.ocfunfrenzy.com/', label: 'OC Fun Frenzy' },
     logo: logoFun,
   },
   {
     name: '3DiF',
     description:
       'A government contracting company specializing in admin related work.',
-    link: { href: 'https://www.3dif.co/', label: '3dif.co' },
+    link: { href: 'https://www.3dif.co/', label: '3DiF' },
     logo: logo3dif,
   },
 ]
