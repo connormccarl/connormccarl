@@ -7,13 +7,14 @@ import logoFun from '@/images/logos/funfrenzy.png'
 import logoGregor from '@/images/logos/gregor.png'
 import logo3dif from '@/images/logos/3dif.jpg'
 import logoFinaeon from '@/images/logos/finaeon.gif'
+import logoMcCarl from '@/images/logos/mccarlcapital.jpg'
 
 const projects = [
   {
     name: 'Finaeon',
     description:
       '150+ years of historical stock and economic data for Top Universities, Hedge Funds and Traders.',
-    link: { href: 'https://gfdfinaeon.com/', label: 'Finaeon' },
+    link: { href: 'https://finaeon.com/', label: 'Finaeon' },
     logo: logoFinaeon,
   },
   {
@@ -36,6 +37,13 @@ const projects = [
       'A government contracting company specializing in admin related work.',
     link: { href: 'https://www.3dif.co/', label: '3DiF' },
     logo: logo3dif,
+  },
+  {
+    name: 'McCarl Capital',
+    description:
+      'A commercial real estate private equity company that buys in Raleigh-Durham, North Carolina.',
+    link: { href: 'https://mccarlcapital.com/', label: 'McCarl Capital' },
+    logo: logoMcCarl,
   },
 ]
 
@@ -76,7 +84,7 @@ export default function Projects() {
               />
             </div>
             <h2 className="mt-6 text-base font-semibold text-zinc-800 dark:text-zinc-100">
-              <Card.Link href={project.link.href}>{project.name}</Card.Link>
+              <Card.Link href={project.link.href} target='_blank'>{project.name}</Card.Link>
             </h2>
             <Card.Description>{project.description}</Card.Description>
             <p className="relative z-10 mt-6 flex text-sm font-medium text-zinc-400 transition group-hover:text-sky-500 dark:text-zinc-200">

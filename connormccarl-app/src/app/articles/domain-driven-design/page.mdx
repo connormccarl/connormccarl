@@ -1,0 +1,101 @@
+import { ArticleLayout } from '@/components/ArticleLayout'
+
+export const article = {
+  author: 'Connor McCarl',
+  date: '2024-12-07',
+  title:
+    'Domain-Driven Design (DDD): A Guide to Building Software Aligned with Business Needs',
+  description:
+    'In modern software development, building solutions that align closely with business requirements is critical. **Domain-Driven Design (DDD)** offers a framework for achieving this alignment by emphasizing collaboration between technical and domain experts. By focusing on the core business logic and creating a shared language, DDD bridges the gap between developers and stakeholders.',
+}
+
+export const metadata = {
+  title: article.title,
+  description: article.description,
+}
+
+export default (props) => <ArticleLayout article={article} {...props} />
+
+# Domain-Driven Design (DDD): A Guide to Building Software Aligned with Business Needs
+
+In modern software development, building solutions that align closely with business requirements is critical. **Domain-Driven Design (DDD)** offers a framework for achieving this alignment by emphasizing collaboration between technical and domain experts. By focusing on the core business logic and creating a shared language, DDD bridges the gap between developers and stakeholders.
+
+## What is Domain-Driven Design?
+
+Coined by Eric Evans in his seminal book _Domain-Driven Design: Tackling Complexity in the Heart of Software_, DDD is an approach to software development that prioritizes understanding and modeling the domain—the specific area of knowledge or activity your software is designed to support.
+
+At its core, DDD revolves around three main principles:
+
+1. **Focus on the Core Domain:** Concentrate efforts on solving the most critical business problems.
+2. **Collaborate Using a Ubiquitous Language:** Create a shared language understood by both developers and domain experts to avoid misunderstandings.
+3. **Model the Domain Explicitly:** Use rich models that reflect real-world processes and entities.
+
+## Key Concepts of Domain-Driven Design
+
+DDD introduces several concepts and building blocks to help developers model complex domains effectively:
+
+### 1. **Ubiquitous Language**
+
+The ubiquitous language is a common vocabulary used by everyone involved in the project. It ensures that domain experts and developers communicate effectively, reducing the risk of misinterpretation.
+
+- Example: If you're developing a system for e-commerce, terms like "Order," "Cart," and "Payment" should mean the same thing to all stakeholders.
+
+### 2. **Bounded Contexts**
+
+A **bounded context** defines the boundaries within which a particular domain model applies. Each bounded context has its own model and ubiquitous language, ensuring clarity and separation of concerns.
+
+- Example: In an e-commerce system, the "Customer Management" and "Order Processing" contexts may each have their own models for a "Customer," reflecting their specific requirements.
+
+### 3. **Entities and Value Objects**
+
+- **Entities:** Objects with a unique identity that persists over time. For example, a "Customer" in a CRM system is an entity.
+- **Value Objects:** Objects that are defined by their attributes rather than a unique identity. For instance, an "Address" can be a value object with fields like "Street" and "City."
+
+### 4. **Aggregates**
+
+An **aggregate** is a cluster of related objects treated as a single unit. It defines a clear boundary for consistency and transactional integrity. Each aggregate has a root entity, known as the **aggregate root**.
+
+- Example: An "Order" aggregate might include the order details, items, and shipping address, with the "Order" entity as the root.
+
+### 5. **Domain Events**
+
+A **domain event** represents a significant occurrence in the domain, such as "Order Placed" or "Payment Processed." These events help capture the history of the system and facilitate communication between bounded contexts.
+
+### 6. **Repositories**
+
+**Repositories** provide an abstraction for accessing and persisting aggregates. They enable the application to retrieve domain objects without exposing implementation details like database schemas.
+
+## Benefits of Domain-Driven Design
+
+- **Better Alignment with Business Needs:** By collaborating closely with domain experts, developers build software that truly reflects the business's requirements.
+- **Improved Communication:** The ubiquitous language reduces misunderstandings and ensures everyone is on the same page.
+- **Modularity and Scalability:** Bounded contexts and aggregates promote a modular architecture that scales with the business.
+- **Resilience to Change:** A well-defined domain model is easier to adapt to new requirements or business processes.
+
+## Challenges of Domain-Driven Design
+
+While DDD is powerful, it comes with its challenges:
+
+- **Complexity:** Understanding and modeling a domain takes time and effort.
+- **Overhead:** Smaller projects may not benefit as much from DDD’s structured approach.
+- **Team Expertise:** Successful implementation requires skilled teams familiar with the concepts and techniques of DDD.
+
+## When to Use Domain-Driven Design
+
+DDD is best suited for:
+
+- Complex domains where business logic is a key differentiator.
+- Projects involving close collaboration between developers and domain experts.
+- Systems expected to evolve over time, requiring adaptability.
+
+For simpler projects or those with minimal domain complexity, lightweight approaches may be more appropriate.
+
+## Conclusion
+
+Domain-Driven Design provides a robust framework for building software that mirrors business requirements, enabling teams to deliver high-value solutions. By focusing on the core domain, fostering collaboration through ubiquitous language, and leveraging rich models, DDD equips developers to tackle complexity with confidence.
+
+Whether you’re embarking on a new project or refactoring an existing system, adopting DDD can help ensure your software is not just functional, but truly aligned with the needs of the business.
+
+---
+
+I hope this framework helps you with your software project management and planning. Happy planning!
