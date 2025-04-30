@@ -14,7 +14,7 @@ import {
 import logoCreativ from '@/images/logos/creativcodes.jpeg'
 import logoSCC from '@/images/logos/scc.png'
 import logoChapman from '@/images/logos/chapman.svg'
-import logoFinaeon from '@/images/logos/finaeon.gif'
+import logoFinaeon from '@/images/logos/finaeon.png'
 import image1 from '@/images/photos/image-1.jpg'
 import image2 from '@/images/photos/image-2.jpg'
 import image3 from '@/images/photos/image-3.jpg'
@@ -192,7 +192,7 @@ function Resume() {
       logo: logoFinaeon,
       start: '2024',
       end: {
-        label: 'Present',
+        label: '2025',
         dateTime: new Date().getFullYear().toString(),
       },
     },
