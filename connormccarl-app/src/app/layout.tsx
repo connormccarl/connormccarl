@@ -12,7 +12,7 @@ export const metadata: Metadata = {
       'Connor McCarl - Software engineer and real estate investor',
   },
   description:
-    'I’m Connor McCarl, a software engineer and real estate investor based in Orange County, California. I’m an avid learner, software developer, and real estate professional that loves helping people and building something new.',
+    'I’m Connor McCarl, a software engineer and real estate investor based in Miami, Florida. I’m an avid learner, software developer, and real estate professional that loves helping people and building something new.',
   alternates: {
     types: {
       'application/rss+xml': `${process.env.NEXT_PUBLIC_SITE_URL}/feed.xml`,

@@ -187,22 +187,22 @@ function Role({ role }: { role: Role }) {
 function Resume() {
   let resume: Array<Role> = [
     {
+      company: 'CreativCodes',
+      title: 'Owner',
+      logo: logoCreativ,
+      start: '2017',
+      end: {
+        label: 'current',
+        dateTime: new Date().getFullYear().toString(),
+      },
+    },
+    {
       company: 'Finaeon',
       title: 'Head of Software Development',
       logo: logoFinaeon,
       start: '2024',
       end: {
         label: '2025',
-        dateTime: new Date().getFullYear().toString(),
-      },
-    },
-    {
-      company: 'CreativCodes',
-      title: 'Senior Software Developer',
-      logo: logoCreativ,
-      start: '2017',
-      end: {
-        label: '2024',
         dateTime: new Date().getFullYear().toString(),
       },
     },
@@ -279,12 +279,12 @@ export default async function Home() {
             Software engineer and avid learner.
           </h1>
           <p className="mt-6 text-base text-zinc-600 dark:text-zinc-400">
-            I’m Connor McCarl, a software engineer based in Orange County, California. I’m an avid learner that loves helping people and bending technology to my will. I also love playing the piano and exploring new parts of the world.
+            I’m Connor McCarl, a software engineer based in Miami, Florida. I’m an avid learner that loves helping people and bending technology to my will. I also love playing the piano and exploring new parts of the world.
           </p>
           <div className="mt-6 flex gap-6">
             {/*<SocialLink href="https://x.com/connormccarl" aria-label="Follow on X" icon={XIcon} />*/}
             <SocialLink
-              href="https://www.instagram.com/connormccarl/"
+              href="https://www.instagram.com/mccarlcapital/"
               aria-label="Follow on Instagram"
               icon={InstagramIcon}
             />
